@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: myui-pod
+        labels:
+                app: myui
+                type: front-end
+spec:
+        containers:
+        - name: ui-container
+          image: ui-image
