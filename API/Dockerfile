@@ -7,6 +7,8 @@ ENV DB_PASS=myDBforTesting2727
 ENV DB_NAME=movie_db
 ENV BACKEND_PORT=3000
 EXPOSE 3000
+RUN apk update
+RUN apk add mysql mysql-client
 RUN npm install
 CMD ["npm", "start"]
 

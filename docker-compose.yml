@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+  movie-analyst-api:
+    container_name: api
+    image: xtefi/rampup:api
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+
+  movie-analyst-ui:
+    container_name: ui
+    image: xtefi/rampup:ui
+    environment:
+      - BACKEND_URL=172.17.0.1:3000
+    ports:
+      - '8000:8000'
